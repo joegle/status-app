@@ -1,0 +1,22 @@
+body{
+    background-color: white;
+}
+
+.form-inline .form-control {
+    display: inline-block;
+}   
+
+#pin-input{
+    width:50%
+}
+
+.textarea-pending{
+    border-color: #2B542C;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 6px #67B168;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),0 0 6px #67B168;
+}
+
+.textarea-error{
+    border-color: #843534;
+}
+
