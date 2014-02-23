@@ -49,7 +49,7 @@ PHP Security links:
 * http://www.mediawiki.org/wiki/Manual:Securing_database_passwords
 * http://www.php.net/manual/en/faq.passwords.php
 
-# Licensing	
+# Licensing
 
 MIT License 2014 Joseph Wright  (@ joegle.com)
 
