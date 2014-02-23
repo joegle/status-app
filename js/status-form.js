@@ -32,7 +32,7 @@ $(function() {
     });
 
     $("#submiter").click(submit_status);
-    $("#refresh").click(navigator.geolocation.getCurrentPosition(initPositionProbe));
+
 });
 
 // Try to submit a GPS tagged message to the server with credentials 
@@ -52,6 +52,11 @@ function submit_status(){
 	
 	success:response_handler
     });
+}
+
+
+function updatePosition(){
+    navigator.geolocation.getCurrentPosition(initPositionProbe);
 }
 
 // General getCurrentPosition callback that updates and displays the coordinates
