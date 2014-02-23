@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Status &#8291;">
+    
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+    <link rel="apple-touch-icon" href="icon.png">
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    
+    <title>Status App</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <script type="text/javascript" src="js/jquery.1.10.2.min.js" ></script>
+    <script type="text/javascript" src="js/status-form.js"></script>
+    
+  </head>
+  
+  <body>
+
+    <div class="container">
+
+      <div class="row">
+	<div class="col-md-12" >
+	  <p></p>
+
+	  <div class="alert alert-success">
+	    <p>Run the install.php in cgi/ <a href="#" class="alert-link"></a></p>
+
+	  </div>
+
+	  <div id="status-formgroup" class="form-group">
+	    <form role="form">
+	      <textarea class="form-control" placeholder="Present moment . . ." id="status-textarea" wrap="hard" name="textarea" rows="7"></textarea>	 
+	    </form>
+	  </div>
+	  
+	  <p></p>
+		  
+	  <form class="form-inline" id="creds" role="form">
+	    <div class="form-group">
+	      <label class="sr-only" for="pin-input">PIN</label>
+	      <input type="password" width="10%"  class="form-control" pattern="[0-9]*"  id="pin-input" placeholder="PIN">
+	      <button id="submiter" type="button" class="btn btn-primary">Submit</button>
+	    </div>
+	    
+	  </form>
+
+	  <p></p>
+	  <div id="response" class=""></div>
+	  <p></p>
+
+	  <div class="panel panel-default">
+	    <div class="panel-heading">
+	      <h3 class="panel-title">Coordinates <small><a href id="refresh">Refresh</a></small></h3>
+	    </div>
+	    <div class="panel-body">
+	      <p>Coordinates at message start time:</p>
+		 <table class="table">
+		   <tr>
+		     <td>Datetime</td>
+		     <td id="epoch"></td>		
+		   </tr>
+		   <tr>
+		     <td>Latitude</td>
+		     <td id="latitude"></td>		
+		   </tr>
+		   <tr>
+		     <td>Longitude</td>
+		     <td id="longitude"></td>		
+		   </tr>
+		   <tr>
+		     <td>Altitude</td>
+		     <td id="altitude"></td>
+		   </tr>
+		 </table>
+	    </div>
+	  </div>
+	  <p><a href="https://github.com/joegle/status-app/">About</a> - <a href="cgi/status-update.php?action=logout">Log out</a></p>
+	  
+      </div> <!-- /container -->
+    </div>
+  </body>
+</html>
