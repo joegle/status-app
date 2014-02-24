@@ -40,7 +40,9 @@ The configured password (defined in config.php) must be supplied into the Passwo
 
 SSL certificates are required for secure transmission of data over untrusted networks.
 
-status-app does not have any cross-site scripting attack opportunities built in and XSS attacks are not in the scope of concern. XSS vectors can be added loading dynamic content that users modify.
+status-app does not have any cross-site scripting attack opportunities built in and 
+XSS attacks are not in the scope of concern. XSS vectors can be added by loading 
+dynamic HTML content that users had access to modify.
 
 Log out to revoke cookie based sessions by visiting `cgi/status-update.php?action=logout` .
 
