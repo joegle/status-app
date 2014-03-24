@@ -13,7 +13,7 @@ echo "<p>Consult <a href='../README.md'>README.md</a> for install instructions.<
 echo "<h3>config.php</h3>";
 if ( ! file_exists("./config.php")){
   echo "<p>No config.php file found in cgi/</p>";
-  echo "<p>Fill out config-sample.php and copy it as config.php</p>";
+  echo "<p>Fill out <i>config-sample.php</i> and copy it to <i>config.php</i></p>";
   echo "<p>Aborting database setup</p>";
   
   die();
@@ -21,7 +21,7 @@ if ( ! file_exists("./config.php")){
 }
 else{
   include "./config.php";
-  echo "<p>Loading config.php... Success  </p>";
+  echo "<p>Loading <i>config.php</i>... Success  </p>";
 
 }
 
@@ -85,5 +85,6 @@ else {
 
 echo "<h3>Security steps</h3>";
 echo "<p>Change the default password by generating a new PIN password hash at <a href='keygen.php'>keygen.php</a> to place in config.php</p>";
+echo "<p>Move the <i>config.php</i> file outside of your servers document root and modify <i>status-update.php</i> <b>CONFIG_FILE</b> definition to correspond. </p>";
 echo "<p>Disable read permisions of this script to prevent the public from executing it.</p>";
 echo "<p><a href='../index.html'>Test your install</a>, default password: '123' (set TESTING flag to true to see debug messages in update-status.php JSON responses)</p>";

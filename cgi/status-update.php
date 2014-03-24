@@ -15,7 +15,11 @@
 //error_reporting(E_ALL); //
 //ini_set('display_errors', 1);
 
-require("./config.php");
+define('CONFIG_FILE','./cosnfig.php');
+
+if ( file_exists(CONFIG_FILE) ){
+  require(CONFIG_FILE);
+}
 
 
 /*
@@ -79,8 +83,8 @@ class SingleUserSession {
       
     }
 
-    if ( ! file_exists(dirname(__FILE__)."/config.php") ){
-      $this->log("No config.php file");
+    if ( ! file_exists(CONFIG_FILE) ){
+      $this->log("No config.php file at defined location in " . basename(__FILE__));
       $requirements = false;     
     }
 

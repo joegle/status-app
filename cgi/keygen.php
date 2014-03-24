@@ -34,7 +34,7 @@ if ( isset($_POST["pin"], $_POST["pin_repeat"])
 
   if ( $hash ) { 
 
-    echo "<p>Copy this hash into <i>config.php</i>:</p>";
+    echo "<p>Copy this hash into your <i>config.php</i> file:</p>";
     echo "<blockquote>" . $hash . "</blockquote>";
 
     echo "<p>Took ".((float)$crypt_end-$crypt_start)." seconds to complete.</p>";
