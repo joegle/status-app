@@ -1,4 +1,5 @@
 var latt,lont,altt,epoch_g;
+var message_buffer="";
 
 $(function() {
 
@@ -37,6 +38,15 @@ $(function() {
 
 // Try to submit a GPS tagged message to the server with credentials 
 function submit_status(){
+
+    if (message_buffer === ""){
+	message_buffer = $("#status-textarea").val();
+    }
+
+    $("#status-textarea").val("");
+    $('#status-textarea').prop('disabled', true);
+    $("#status-textarea").attr("placeholder","Sending . . .");
+
     $.ajax({
 	url: "cgi/status-update.php",
 	type: "POST",
@@ -44,7 +54,7 @@ function submit_status(){
 
 	data: {
 	    password: $("#pin-input").val(),
-	    message: $("#status-textarea").val(),
+	    message: message_buffer,
 	    lat: latt,
 	    alt: altt,
 	    lon: lont,
@@ -90,7 +100,7 @@ function initPositionProbe(position) {
 	cache:false,
 	
 	data: {
-	    tripcode: $("#pin-input").val(),
+	    password: $("#pin-input").val(),
 	    message: $("#status-textarea").val(),
 	    lat: position.coords.latitude,
 	    alt: position.coords.altitude,
@@ -148,6 +158,10 @@ function response_handler(response){
 	console.log(response.log[index]);
     
     if ( response.success ) {
+	$("#status-textarea").attr("placeholder","Success . . .");
+	$("#status-textarea").attr("disabled", false);
+	message_buffer = "";
+
 	$("#status-textarea").val("");	    
 	$("#status-textarea").focus();
 
@@ -166,16 +180,19 @@ function response_handler(response){
 	    $("#response").html(response.message);
 	}
 
+
 	if ( response.validated ) {
 	    navigator.geolocation.getCurrentPosition(showPosition);
 	    $("#pin-input").attr("placeholder","PIN");
 	    $("#creds").removeClass("has-error");
 	    $("#creds").addClass("has-success");
+
 	}
 	else{
 	    $("#pin-input").focus();
 	    $("#pin-input").val("");
 	    $("#pin-input").attr("placeholder","PIN needed");	
+	    $("#status-textarea").attr("placeholder","PIN needed");
 	    $("#creds").addClass("has-error");
 	    $("#creds").removeClass("has-success");
 	}
@@ -204,3 +221,4 @@ function DECtoDMS_string(decimal, coordinate){
     
     return  degrees + "° " + minutes + "′ " + seconds + "″ "+ compass ;
 }
+
