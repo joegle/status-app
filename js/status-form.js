@@ -75,7 +75,7 @@ function showPosition(position) {
     var epoch = parseInt(position.timestamp/1000);
 
     var date = new Date(position.timestamp);
-    $("#epoch").text(date.toDateString() + " " + date.toLocaleTimeString());
+    $("#epoch").html(date.toDateString() + "<br>" + date.toLocaleTimeString());
     $("#latitude").text( DECtoDMS_string(position.coords.latitude,"lat"));
     $("#longitude").text( DECtoDMS_string(position.coords.longitude,"lon"));
 
