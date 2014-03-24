@@ -93,6 +93,7 @@ function showPosition(position) {
 
 
 // GPS getCurrentPosition callback for the initial page load 
+//  database status messages are identified with '#probe'
 function initPositionProbe(position) {
     $.ajax({
 	url: "cgi/status-update.php",
@@ -101,7 +102,7 @@ function initPositionProbe(position) {
 	
 	data: {
 	    password: $("#pin-input").val(),
-	    message: $("#status-textarea").val(),
+	    message: "#probe",
 	    lat: position.coords.latitude,
 	    alt: position.coords.altitude,
 	    lon: position.coords.longitude,
@@ -117,7 +118,6 @@ function initPositionProbe(position) {
 	    $("#status-textarea").focus();
 
 	    if ( response.success ) {
-		$("#status-textarea").val("");	    
 		$("#status-textarea").focus();
 		
 		$("#creds").removeClass("has-error");
@@ -137,7 +137,7 @@ function initPositionProbe(position) {
 		}
 		else{
 		    // $("#pin-input").focus();
-		    $("#pin-input").val("");
+
 		    $("#pin-input").attr("placeholder","PIN needed");	
 		    $("#creds").addClass("has-error");
 		    $("#creds").removeClass("has-success");
