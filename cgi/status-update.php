@@ -15,7 +15,7 @@
 //error_reporting(E_ALL); //
 //ini_set('display_errors', 1);
 
-define('CONFIG_FILE','./cosnfig.php');
+define('CONFIG_FILE','./config.php');
 
 if ( file_exists(CONFIG_FILE) ){
   require(CONFIG_FILE);
@@ -26,7 +26,7 @@ if ( file_exists(CONFIG_FILE) ){
  * SingleUserSession initiates, authenticates, and operates database payloads for 
  * a single user with the HTTP POST requests parameters: 
  *
- *     password - password to be hash verified with THE_KEY defined in cgi/congif.php 
+ *     password - password to be hash verified with THE_KEY defined in the config.php file 
  *     cookie - sessionid provided cookie from an authenicated session
  *     message - message to store in database
  *     lat , lon , alt - latitude, longitude, altitude floats for message tagging in database
